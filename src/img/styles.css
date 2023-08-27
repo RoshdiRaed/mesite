@@ -1,0 +1,400 @@
+/* Reset some default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: cairo;
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333; /* Navbar background color */
+  padding: 10px 20px;
+  color: white; /* Text color */
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+}
+
+.menu li {
+  margin-right: 20px;
+}
+
+.menu li:last-child {
+  margin-right: 0;
+}
+
+.menu a {
+  text-decoration: none;
+  color: white; /* Menu item text color */
+  transition: color 0.3s;
+}
+
+.menu a:hover {
+  /* color: #FF9900; */
+  color: rgb(100, 100, 255);
+}
+
+/* Reset some default browser styles */
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+.my-name {
+  margin-top: 50px;
+}
+
+.about-hero {
+  margin-bottom: 40px;
+}
+
+.main-content {
+  text-align: center;
+  display: flex;
+  padding: 40px;
+  background-color: #f5f5f5; /* Background color for the main content area */
+}
+
+.about-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+.about-details {
+  margin-bottom: 20px;
+}
+
+.buttons {
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly; /* Equal spacing between buttons */
+  margin-left: 120px;
+  margin-right: 120px;
+}
+
+.hire-button,
+.contact-button,
+.cv-button {
+  background-color: rgb(100, 100, 255);
+  color: white;
+  border: none;
+  border-radius: 0%;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cv-button a {
+  text-decoration: none;
+  color: white;
+}
+
+.hire-button:hover,
+.contact-button:hover,
+.cv-button:hover {
+  background-color: rgb(34, 34, 231);
+}
+
+.image-section {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+.image-container {
+  width: 550px; /* Set the width of the image container */
+  height: 550px; /* Set the height of the image container */
+  overflow: hidden; /* Hide any overflow from the image */
+}
+
+.image-container img {
+  width: 100%; /* Make the image width 100% of the container */
+  height: auto; /* Allow the image to adjust its height proportionally */
+}
+
+/* .social-media {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    display: flex;
+    gap: 10px;
+} */
+
+.social-button img {
+  width: 30px; /* Adjust the width as needed */
+  height: 30px; /* Adjust the height as needed */
+  margin: 15px;
+}
+
+/* ... Your existing styles ... */
+
+.container {
+  /* max-width: 1200px;
+    margin: 0 auto;
+    height: auto; */
+}
+
+.equal-height {
+  display: flex;
+  flex-direction: row;
+}
+
+.image-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  padding: 0px;
+}
+
+.image-container img {
+  width: 100%; /* Make the image fill the container's width */
+  height: 100%; /* Make the image fill the container's height */
+  object-fit: cover; /* Maintain aspect ratio and cover the entire container */
+}
+
+.details-container {
+  flex: 1;
+  margin-top: 120px;
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+/* ... */
+
+/* ... Your existing styles ... */
+
+/* ... Your existing styles ... */
+
+.projects-container {
+  background-color: #f5f5f5;
+  padding: 40px;
+  text-align: center;
+}
+
+.projects-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.project-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: -10px; /* Add negative margin to counteract padding inside cards */
+}
+
+.project-card {
+  flex: 0 0 calc(29% - 20px); /* Three cards per row with spacing */
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 10px; /* Add margin to space out the cards */
+  text-align: center;
+}
+
+.project-card img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.project-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.project-card p {
+  font-size: 1rem;
+}
+
+.pro-button {
+  background-color: rgb(100, 100, 255);
+  color: white;
+  text-decoration: none;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+.pro-button a {
+  color: white;
+  text-decoration: none;
+  display: block; /* Make the link fill the button's area */
+  /* padding: 10px 20px; */
+  /* border-radius: 4px; */
+  /* background-color: rgb(100, 100, 255); */
+  /* transition: background-color 0.3s; */
+}
+
+.pro-button:hover {
+  background-color: rgb(34, 34, 231);
+}
+
+/* Skills */
+
+/* ... Your existing styles ... */
+
+/* ... Your existing styles ... */
+
+.skills-container {
+  background-color: #f5f5f5;
+  padding: 40px;
+  text-align: center;
+}
+
+.skills-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.skills-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: -10px; /* Add negative margin to counteract padding inside cards */
+}
+
+.skills-card {
+  flex: 0 0 calc(29% - 20px); /* Three cards per row with spacing */
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 10px; /* Add margin to space out the cards */
+  text-align: center;
+}
+
+.skills-image {
+  margin-bottom: 10px;
+}
+
+.skills-image img {
+  max-width: 100px;
+  height: auto;
+}
+
+.skills-text {
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+
+/* ...Contect ... */
+
+.contact-us {
+  margin: 0 auto;
+  margin-top: 75px;
+  max-width: 600px;
+  padding: 30px;
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.contact-us h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.contact-us p {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.contact-us form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-us label {
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.contact-us input,
+.contact-us textarea {
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  border: none;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.contact-us input:focus,
+.contact-us textarea:focus {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.contact-us button[type="submit"] {
+  background-color: rgb(100, 100, 255);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.contact-us button[type="submit"]:hover {
+  background-color: rgb(100, 100, 255);
+}
+
+/* ... Rest of your styles ... */
+
+footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: rgb(100, 100, 255);
+}
+
+/* ... Rest of your styles ... */
