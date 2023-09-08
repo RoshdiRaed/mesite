@@ -23,6 +23,9 @@ import img5 from './img/img5.jpg';
 import img6 from './img/img6.jpg';
 import img7 from './img/img7.png';
 
+import img5 from './img/img5.jpg';
+import img6 from './img/img6.jpg';
+import img7 from './img/img7.png';
 function App() {
   return (
     <div>
