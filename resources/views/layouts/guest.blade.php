@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" x-data="{ theme: localStorage.getItem('theme') || 'dark' }" x-init="$watch('theme', val => { localStorage.setItem('theme', val) })" :class="theme">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +12,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Geist+Mono:wght@300;400;500&family=Instrument+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'dark') {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        })();
+    </script>
 
     <style>
         :root {
@@ -227,7 +238,12 @@
         [x-cloak] { display: none !important; }
     </style>
 </head>
-<body>
+<body x-data="{ theme: localStorage.getItem('theme') || 'dark' }" 
+      x-init="$watch('theme', val => {
+          localStorage.setItem('theme', val);
+          document.documentElement.classList.toggle('dark', val === 'dark');
+      })" 
+      :class="theme">
     <button class="theme-toggle-mini"
         @click="theme = theme === 'dark' ? 'light' : 'dark'">
         <span x-show="theme === 'dark'">☀</span>

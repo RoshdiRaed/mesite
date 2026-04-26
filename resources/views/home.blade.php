@@ -130,17 +130,17 @@
     <div class="books-tabs" role="tablist">
         <button class="book-tab" role="tab"
             :aria-selected="tab === 'reading'"
-            @click="tab = 'reading'">
+            x-on:click="tab = 'reading'">
             Reading now
         </button>
         <button class="book-tab" role="tab"
             :aria-selected="tab === 'read'"
-            @click="tab = 'read'">
+            x-on:click="tab = 'read'">
             Have read
         </button>
         <button class="book-tab" role="tab"
             :aria-selected="tab === 'want'"
-            @click="tab = 'want'">
+            x-on:click="tab = 'want'">
             Want to read
         </button>
     </div>

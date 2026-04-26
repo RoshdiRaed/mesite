@@ -1,10 +1,26 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" x-data="{ theme: localStorage.getItem('theme') || 'dark' }" x-init="$watch('theme', val => { localStorage.setItem('theme', val) })" :class="theme">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="description" content="Roshdi — Laravel Developer. Building robust, elegant backends with Laravel and crafting seamless APIs.">
+    <meta name="description" content="{{ $description ?? 'Roshdi — Laravel Developer. Building robust, elegant backends with Laravel and crafting seamless APIs.' }}">
+    <meta name="theme-color" content="#c84b2f">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="{{ $title ?? 'Roshdi — Laravel Developer' }}">
+    <meta property="og:description" content="{{ $description ?? 'Roshdi — Laravel Developer. Building robust, elegant backends with Laravel and crafting seamless APIs.' }}">
+    <meta property="og:image" content="{{ asset('assets/img/og-image.png') }}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ url()->current() }}">
+    <meta property="twitter:title" content="{{ $title ?? 'Roshdi — Laravel Developer' }}">
+    <meta property="twitter:description" content="{{ $description ?? 'Roshdi — Laravel Developer. Building robust, elegant backends with Laravel and crafting seamless APIs.' }}">
+    <meta property="twitter:image" content="{{ asset('assets/img/og-image.png') }}">
 
     <title>{{ $title ?? 'Roshdi — Laravel Developer' }}</title>
 
@@ -15,6 +31,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Geist+Mono:wght@300;400;500&family=Instrument+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'dark') {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        })();
+    </script>
 
     <style>
         :root {
@@ -633,9 +660,50 @@
             font-family: var(--mono);
             font-size: 0.9rem;
         }
+        /* ── TOAST ── */
+        .toast-container {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .toast {
+            background: var(--paper2);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            color: var(--ink);
+            font-family: var(--mono);
+            font-size: 0.85rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            animation: slideIn 0.3s ease forwards;
+        }
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
     </style>
 </head>
-<body x-data="{ mobileNav: false }">
+<body x-data="{ 
+    theme: localStorage.getItem('theme') || 'dark',
+    mobileNav: false,
+    toast: '{{ session('success') }}'
+}" 
+x-init="
+    $watch('theme', val => {
+        localStorage.setItem('theme', val);
+        document.documentElement.classList.toggle('dark', val === 'dark');
+    });
+    if(toast) setTimeout(() => toast = '', 4000)
+"
+:class="theme">
 
     {{-- NAV --}}
     <nav>
@@ -707,6 +775,14 @@
             </div>
         </div>
     </footer>
+
+    {{-- Toast Notification --}}
+    <div class="toast-container" x-show="toast" x-transition x-cloak>
+        <div class="toast">
+            <span style="color: #22c55e;">✓</span>
+            <span x-text="toast"></span>
+        </div>
+    </div>
 
 </body>
 </html>

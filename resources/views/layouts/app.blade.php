@@ -13,8 +13,25 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        <script>
+            (function() {
+                const theme = localStorage.getItem('theme') || 'dark';
+                if (theme === 'dark') {
+                    document.documentElement.classList.add('dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                }
+            })();
+        </script>
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased"
+          x-data="{ theme: localStorage.getItem('theme') || 'dark' }" 
+          x-init="$watch('theme', val => {
+              localStorage.setItem('theme', val);
+              document.documentElement.classList.toggle('dark', val === 'dark');
+          })" 
+          :class="theme">
         <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
 
